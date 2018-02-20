@@ -6,6 +6,65 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
+var articleOne={
+    title:'Article One | Aditi Patade',
+    heading:'Article One',
+    date: 'Feb 20, 2018',
+    content: ` <p>
+                    This is content for my first app. This is content for my first app. This is content for my first app. This is content for my first app. This is content for my first app. This is content for my first app. This is content for my first app.
+    
+                </p>
+                <p>
+                    This is content for my first app. This is content for my first app. This is content for my first app. This is content for my first app. This is content for my first app. This is content for my first app. This is content for my first app.
+    
+                </p>
+                <p>
+                    This is content for my first app. This is content for my first app. This is content for my first app. This is content for my first app. This is content for my first app. This is content for my first app. This is content for my first app.
+    
+                </p>`,
+};
+
+function createTemplate(data)
+{
+    var title= data.title;
+    var date= data.date;
+    var heading= data.heading;
+    var content= data.content;
+
+
+        var htmlTemplate=`
+        <html>
+            <head>
+                <title>
+                     ${title};
+                </title>
+                <meta name="width= device-width, initial-scale=1"/>
+                <link href="/ui/style.css" rel="stylesheet" />
+            </head>
+            
+            <body>
+                <div class="Container">
+                    <div>
+                        <a href="/">Home</a>    //Hyperlink
+                    </div>
+                    <div>                       //A section
+                        ${heading};
+                    </div>
+                    <hr/>                       //Horizontal line
+                    <div>
+                       ${date};
+                    </div>
+                    <div>
+                       ${content};
+                    </div>
+                </div>
+            </body>
+        </html>
+        `;
+    return htmlTemplate;
+}
+
+
 //URL Handlers. Text responders
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
@@ -16,7 +75,7 @@ app.get('/Article-one', function(req, res){
 });
 
 app.get('/Article-Two', function(req, res){
-   res.sendFile(path.join(__dirname, 'ui', 'Article- two.html'))
+   res.sen(createTemplate(articleOne))
 });
 
 app.get('/Article-Three', function(req, res){
