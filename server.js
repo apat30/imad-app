@@ -37,12 +37,14 @@ var articles=
                     </p>`,
         
     },
-    articleThree:{
+    articleThree:
+    {
         title:'Article One | Aditi Patade',
         heading:'Article One',
         date: 'Feb 20, 2018',
         content: ` <p>
                         This is content for my third article.
+                        </p>`,
         
     },
 };
@@ -92,17 +94,11 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/Article-one', function(req, res){
-    res.sendFile(path.join(__dirname, 'ui', 'Article-one.html'))
+app.get('/:ArticleName', function(req, res){
+    res.send(createTemplate(articles[articleName]));
 });
 
-app.get('/Article-Two', function(req, res){
-   res.sen(createTemplate(articleOne))
-});
 
-app.get('/Article-Three', function(req, res){
-    res.sendFile(path.join(__dirname, 'ui', 'Article-Three.html'))
-});
 
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
