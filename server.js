@@ -1,5 +1,6 @@
-var express = require('express');
-var morgan = require('morgan');
+//Importing certain pakages in the below 3 lines
+var express = require('express');//To create web servers, listens on the port and handles HTTP connection
+var morgan = require('morgan');//Output logs of server
 var path = require('path');
 
 var app = express();
