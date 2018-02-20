@@ -6,8 +6,21 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
+//URL Handlers. Text responders
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
+});
+
+app.get('/Article-one', function(req, res){
+    res.send('Article one requested and will be served.')
+});
+
+app.get('/Article-Two', function(req, res){
+    res.send('Article Two requested and will be served.')
+});
+
+app.get('/Article-Three', function(req, res){
+    res.send('Article Three requested and will be served.')
 });
 
 app.get('/ui/style.css', function (req, res) {
