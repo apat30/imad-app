@@ -30,7 +30,7 @@ var articles=
     {
         title:'Article Two | Aditi Patade',
         heading:'Article Two',
-        date:'Feb 20, 2018',
+        date:'Feb 21, 2018',
         content: ` <p>
                         This is content for my second article.
         
@@ -39,9 +39,9 @@ var articles=
     },
     'articleThree':
     {
-        title:'Article One | Aditi Patade',
-        heading:'Article One',
-        date: 'Feb 20, 2018',
+        title:'Article Three | Aditi Patade',
+        heading:'Article Three',
+        date: 'Feb 22 2018',
         content: ` <p>
                         This is content for my third article.
                         </p>`,
