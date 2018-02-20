@@ -10,7 +10,7 @@ var articles=
 {
     'article-one':
     {
-        title:'Article One | Aditi Patade',
+        title:`Article One | Aditi Patade`,
         heading:'Article One',
         date: 'Feb 20, 2018',
         content: ` <p>
