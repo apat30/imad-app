@@ -6,24 +6,46 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var articleOne={
-    title:'Article One | Aditi Patade',
-    heading:'Article One',
-    date: 'Feb 20, 2018',
-    content: ` <p>
-                    This is content for my first app. This is content for my first app. This is content for my first app. This is content for my first app. This is content for my first app. This is content for my first app. This is content for my first app.
-    
-                </p>
-                <p>
-                    This is content for my first app. This is content for my first app. This is content for my first app. This is content for my first app. This is content for my first app. This is content for my first app. This is content for my first app.
-    
-                </p>
-                <p>
-                    This is content for my first app. This is content for my first app. This is content for my first app. This is content for my first app. This is content for my first app. This is content for my first app. This is content for my first app.
-    
-                </p>`,
+var articles=
+{
+    articleOne:
+    {
+        title:'Article One | Aditi Patade',
+        heading:'Article One',
+        date: 'Feb 20, 2018',
+        content: ` <p>
+                        This is content for my first app. This is content for my first app. This is content for my first app. This is content for my first app. This is content for my first app. This is content for my first app. This is content for my first app.
+        
+                    </p>
+                    <p>
+                        This is content for my first app. This is content for my first app. This is content for my first app. This is content for my first app. This is content for my first app. This is content for my first app. This is content for my first app.
+        
+                    </p>
+                    <p>
+                        This is content for my first app. This is content for my first app. This is content for my first app. This is content for my first app. This is content for my first app. This is content for my first app. This is content for my first app.
+        
+                    </p>`,
+    },
+    articleTwo:
+    {
+        title:'Article Two | Aditi Patade',
+        heading:'Article Two',
+        date:'Feb 20, 2018',
+        content: ` <p>
+                        This is content for my second article.
+        
+                    </p>`,
+        
+    },
+    articleThree:{
+        title:'Article One | Aditi Patade',
+        heading:'Article One',
+        date: 'Feb 20, 2018',
+        content: ` <p>
+                        This is content for my third article.
+        
+    },
 };
-
 function createTemplate(data)
 {
     var title= data.title;
