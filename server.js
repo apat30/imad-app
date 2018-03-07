@@ -98,7 +98,7 @@ function createTemplate(data)
 
 var pool= new pool(config);
 
-app.get('/test-db', function(req, res)
+app.get('/Test-db', function(req, res)
 {
     //make a select request
     //Return response with a result
