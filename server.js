@@ -2,7 +2,15 @@
 var express = require('express');//To create web servers, listens on the port and handles HTTP connection
 var morgan = require('morgan');//Output logs of server
 var path = require('path');
+var pool= require('pg').Pool;
 
+var config= {
+    user: 'aditi3049',
+    database: 'aditi3049',
+    host: 'http://db.imad.hasura-app.io',
+    port:'5432',
+    password: process.envDB_PASSWORD
+}
 var app = express();
 app.use(morgan('combined'));
 
@@ -87,6 +95,32 @@ function createTemplate(data)
         `;
     return htmlTemplate;
 }
+
+var pool= new pool(config);
+
+app.get('/test-db', function(req, res)
+{
+    //make a select request
+    //Return response with a result
+    pool.query('SELECT * from test', function(err, result){
+    if(err)
+    {
+        res.status(500).send(err.toString());
+        }
+        else
+        {
+            res.send(JSON.stringfy(result));
+        }
+});
+});
+
+
+
+
+
+
+
+
 
 
 //URL Handlers. Text responders
