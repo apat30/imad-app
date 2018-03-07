@@ -96,7 +96,7 @@ function createTemplate(data)
     return htmlTemplate;
 }
 
-var pool= new pool(config);
+var pool=   Pool(config);
 
 app.get('/Test-db', function(req, res)
 {
