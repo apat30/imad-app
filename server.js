@@ -2,7 +2,7 @@
 var express = require('express');//To create web servers, listens on the port and handles HTTP connection
 var morgan = require('morgan');//Output logs of server
 var path = require('path');
-var pool= require('pg').Pool;
+var Pool= require('pg').Pool;
 
 var config= {
     user: 'aditi3049',
@@ -102,7 +102,7 @@ app.get('/Test-db', function(req, res)
 {
     //make a select request
     //Return response with a result
-    pool.query('SELECT * FROM "Test"', function(err, result){
+    pool.query('SELECT * FROM Test', function(err, result){
         if(err)
             {
                 res.status(500).send(err.toString());
