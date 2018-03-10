@@ -141,7 +141,7 @@ app.post('/login', function(req, res)
     var password= req.body.password;
    
     //Saving into database
-    pool.query('SELECT * FROM  "User" username=$1',[username], function(err, result)
+    pool.query('SELECT * FROM  "User" WHERE username=$1',[username], function(err, result)
     {
          if(err)
                 {
