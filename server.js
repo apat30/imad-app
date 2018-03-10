@@ -109,7 +109,7 @@ app.get('/Test-db', function(req, res)
             }
         else
             {
-                res.send(JSON.stringfy(result));
+                res.send(JSON.stringfy(result.rows));
             }
     });
 });
