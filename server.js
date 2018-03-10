@@ -9,7 +9,7 @@ var config= {
     user: 'aditi3049',
     database: 'aditi3049',
     host: 'db.imad.hasura-app.io',
-   port:'5432',
+    port:'5432',
     password: process.env.DB_PASSWORD
 };
 var app = express();
@@ -115,14 +115,14 @@ app.get('/Test-db', function(req, res)
 {
     //make a select request
     //Return response with a result
-    pool.query('SELECT * FROM "Test"', function(err, result){
+    pool.query(' SELECT * FROM "Test" ', function(err, result){
         if(err)
             {
                 res.status(500).send(err.toString());
             }
         else
             {
-                res.send(JSON.stringfy(result.rows));
+                res.send(JSON.stringify(result.rows));
             }
     });
 });
