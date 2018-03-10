@@ -102,7 +102,7 @@ app.get('/Test-db', function(req, res)
 {
     //make a select request
     //Return response with a result
-    pool.query('SELECT * FROM Test', function(err, result){
+    pool.query('SELECT * FROM "Test"', function(err, result){
         if(err)
             {
                 res.status(500).send(err.toString());
