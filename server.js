@@ -17,7 +17,7 @@ app.use(morgan('combined'));
 
 var articles=
 {
-    'article-one':
+    'Article-one':
     {
         title:'Article One | Aditi Patade',
         heading:'Article One',
@@ -35,7 +35,7 @@ var articles=
         
                     </p>`,
     },
-    'article-two':
+    'Article- two':
     {
         title:'Article Two | Aditi Patade',
         heading:'Article Two',
@@ -46,7 +46,7 @@ var articles=
                     </p>`,
         
     },
-    'article-three':
+    'Article-Three':
     {
         title:'Article Three | Aditi Patade',
         heading:'Article Three',
@@ -108,8 +108,6 @@ app.get('/hash/:input', function(req, res)
     var hashedString= hash(req.params.input,'This-is-some-random-string');
 }
 );
-
-
 
 var pool= new pool(config);
 
