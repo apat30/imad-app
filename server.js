@@ -4,6 +4,7 @@ var morgan = require('morgan');//Output logs of server
 var path = require('path');
 var pool= require('pg').Pool;
 var crypto= require('crypto');
+var bodyParser= require('body-parser');
 
 var config= {
     user: 'aditi3049',
@@ -14,7 +15,7 @@ var config= {
 };
 var app = express();
 app.use(morgan('combined'));
-
+app.use(bodyParser.json());
 var articles=
 {
     'Article-one':
@@ -110,8 +111,30 @@ app.get('/hash/:input', function(req, res)
 }
 );
 
-var pool= new pool(config);
+//NEVER SEND DATA FROM GET REQUEST
+app.post('/create-user', function(req, res)
+{
+    //Username and password
+    var username= req.body.username;
+    var password= req.body.password;
+    var salt=crypto.RandomBytes(128).toString('hex');
+    var dbString=hash(password, salt);
+    //Saving into database
+    pool.query('INSERT INTO "User" (username, password) VALUES ($1, $2)',[username, dbString], function(err, result)
+    {
+         if(err)
+                {
+                    res.status(500).send(err.toString());
+                }
+            else
+                {
+                    res.send('User successfully created: ' +username);
+                }
+    });
+    
+});
 
+var pool= new pool(config);
 app.get('/Test-db', function(req, res)
 {
     //make a select request
