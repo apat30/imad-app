@@ -102,26 +102,17 @@ app.get('/Test-db', function(req, res)
 {
     //make a select request
     //Return response with a result
-    pool.query('SELECT * FROM "Test"', function(err, result){
-    if(err)
-    {
-        res.status(500).send(err.toString());
-        }
+    pool.query('SELECT * FROM Test', function(err, result){
+        if(err)
+            {
+                res.status(500).send(err.toString());
+            }
         else
-        {
-            res.send(JSON.stringfy(result));
-        }
+            {
+                res.send(JSON.stringfy(result));
+            }
+    });
 });
-});
-
-
-
-
-
-
-
-
-
 
 //URL Handlers. Text responders
 app.get('/', function (req, res) {
