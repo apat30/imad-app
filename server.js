@@ -105,13 +105,13 @@ function hash(input, salt)
 }
 app.get('/hash/:input', function(req, res)
 {
-    var hashedString= hash(req.params.input, 'This-is-some-random-string');
+    var hashedString= hash(req.params.input,'This-is-some-random-string');
 }
 );
 
 
 
-var pool= new pool(config);
+/*var pool= new pool(config);
 
 app.get('/Test-db', function(req, res)
 {
@@ -127,7 +127,7 @@ app.get('/Test-db', function(req, res)
                 res.send(JSON.stringfy(result.rows));
             }
     });
-});
+});*/
 
 //URL Handlers. Text responders
 app.get('/', function (req, res) {
