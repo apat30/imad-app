@@ -3,6 +3,7 @@ var express = require('express');//To create web servers, listens on the port an
 var morgan = require('morgan');//Output logs of server
 var path = require('path');
 var pool= require('pg').Pool;
+var crypto= require('crypto');
 
 var config= {
     user: 'aditi3049',
@@ -95,6 +96,20 @@ var articles=
         `;
     return htmlTemplate;
 }*/
+
+function hash(input, salt)
+{
+    //How do we create the hash
+    var hashed= crpto.pbkdf2Sync(input, salt, 10000, 512, 'sha512');
+    return hashed.toString('hex');
+}
+app.get('/hash/:input', function(req, res)
+{
+    var hashedString= hash(req.params.input, 'This-is-some-random-string');
+}
+);
+
+
 
 var pool= new pool(config);
 
