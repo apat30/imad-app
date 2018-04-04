@@ -138,7 +138,7 @@ app.post('/create-user', function(req, res)
                 {
                      res.setHeader('Content-Type','application/json' );
 
-                     res.send(JSON.parse('User successfully created: ' +username));
+                     res.send(JSON.parse('{"message": "User successfully created: '+username+'"}'));
                 }
     });
     
@@ -163,7 +163,7 @@ app.post('/login', function(req, res)
                     {
                                             res.setHeader('Content-Type','application/json' );
 
-                        res.send(403).send(JSON.parse('Username/password is invalid'));
+                        res.send(403).send(JSON.parse('{"error": "Username/password is invalid"}'));
                     }
                     else
                     {
@@ -178,13 +178,13 @@ app.post('/login', function(req, res)
                                 
                                                     res.setHeader('Content-Type','application/json' );
 
-                                res.send(JSON.parse('cREDENTIALS are correct!!'));
+                                res.send(JSON.parse('{"message": "Credentials are correct"}'));
                             }
                             else
                             {
                                                     res.setHeader('Content-Type','application/json' );
 
-                                res.send(403).send(JSON.parse('Username/password is invalid'));
+                                res.send(403).send(JSON.parse('{"error": "Username/password is invalid"}'));
                             }
                     }
                 }
