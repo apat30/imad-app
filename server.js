@@ -226,7 +226,7 @@ app.get('/Test-db', function(req, res)
 });
 
 //URL Handlers. Text responders
-app.get('/', function (req, res) {
+app.get('/index.html', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
