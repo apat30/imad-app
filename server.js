@@ -67,9 +67,9 @@ var articles=
 };
 function createTemplate(data)
 {
-    var title=data.title;
-    var date=data.date;
-    var heading=data.heading;
+    var title= data.title;
+    var date= data.date;
+    var heading= data.heading;
     var content= data.content;
 
 
@@ -226,11 +226,11 @@ app.get('/Test-db', function(req, res)
 });
 
 //URL Handlers. Text responders
-app.get('/', function (req, res) {
+app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/get-articles', function (req, res){
+app.get('/get-articles', function(req, res){
     var articleName= req.params.articleName;
     res.send(createTemplate(articles[articleName]));
 });
