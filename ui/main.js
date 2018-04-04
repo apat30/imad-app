@@ -34,7 +34,7 @@ submit.onclick=function()
     console.log(password);
 
     request.open('POST', 'http://aditi3049.imad.hasura-app.io/login', true);
-    request.setRequestHeader('Content-Type','application/json');
+    //request.setRequestHeader('Content-Type','application/json');
     request.send(JSON.strinfigy({username:username, password:password}));
 };
 
